@@ -1,0 +1,1 @@
+This is practice for James Shore's "Let's Play TDD" series.
