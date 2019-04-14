@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class _SavingsAccountYearTest {
 
     @Test
-    public  void startingBalance() {
+    public void startingBalance() {
         SavingsAccountYear account = new SavingsAccountYear(10000, 10);
         assertEquals(10000, account.startingBalance());
     }

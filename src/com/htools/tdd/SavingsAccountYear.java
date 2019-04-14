@@ -15,25 +15,12 @@ public class SavingsAccountYear {
         return startingBalance;
     }
 
-    public void deposit(int amount) {
-        startingBalance += amount;
-    }
-
-    public int balance() {
-        return startingBalance;
-    }
-
-    public void withdrawal(int amount) {
-        startingBalance -= amount;
-    }
-
-
     public SavingsAccountYear nextYear() {
         return new SavingsAccountYear(this.endingBalance(), interestRate);
     }
 
     public int endingBalance() {
-        return balance() + (balance() * interestRate / 100);
+        return startingBalance() + (startingBalance() * interestRate / 100);
     }
 
     public int interestRate() {
