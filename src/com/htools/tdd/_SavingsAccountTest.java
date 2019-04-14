@@ -14,4 +14,10 @@ public class _SavingsAccountTest {
         account.withdrawal(50);
         assertEquals(50, account.balance());
     }
+
+    public void negativeBalanceIsJustFine() {
+        SavingsAccount account = new SavingsAccount();
+        account.withdrawal(75);
+        assertEquals(-75, account.balance());
+    }
 }
