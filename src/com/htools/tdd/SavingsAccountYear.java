@@ -1,11 +1,11 @@
 package com.htools.tdd;
 
 public class SavingsAccountYear {
-    private int startingPrincipal = 0;
     private int startingBalance = 0;
     private int capitalGainsAmount = 0;
     private int interestRate = 0;
     private int totalWithdrawn = 0;
+    private int startingPrincipal;
 
     public SavingsAccountYear(int startingBalance, int interestRate) {
         this.startingBalance = startingBalance;
@@ -59,6 +59,9 @@ public class SavingsAccountYear {
     }
 
     public int capitalGainsTaxIncurred(int taxRate) {
-        return capitalGainsWithdrawn() * taxRate / 100;
+        double dblTaxRate = taxRate / 100.0;
+        double dblCapGains = capitalGainsWithdrawn();
+
+        return  (int)((dblCapGains / (1 - dblTaxRate)) - dblCapGains);
     }
 }
