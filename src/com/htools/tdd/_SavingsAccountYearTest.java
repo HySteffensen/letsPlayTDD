@@ -36,6 +36,22 @@ public class _SavingsAccountYearTest {
         assertEquals(thisYear.interestRate(), thisYear.nextYear().interestRate());
     }
 
+    @Test
+    public void withdrawingFundsOccursAtTheBeginningOfTheYear() {
+        SavingsAccountYear year = new SavingsAccountYear(10000, 10);
+        year.withdrawal(1000);
+        assertEquals(9900, year.endingBalance());
+    }
+
+    @Test
+    public void withdrawingMoreThanPrincipalIncursCapitalGainsTax(){
+        SavingsAccountYear year = new SavingsAccountYear(10000, 7000, 10);
+        year.withdrawal(3000);
+        assertEquals(7700, year.endingBalance());
+        year.withdrawal(5000);
+        assertEquals(2000 + 200 - (1250), year.endingBalance());
+    }
+
     private SavingsAccountYear newAccount() {
         return new SavingsAccountYear(10000, 10);
     }
